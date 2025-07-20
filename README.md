@@ -1,12 +1,23 @@
-# React + Vite
+🛍️ React E-Commerce Cart App (Fake Store API)
+A modern and responsive e-commerce shopping cart application built using React.js, Redux Toolkit, and Tailwind CSS, powered by the Fake Store API. This project demonstrates real-world cart functionality including quantity updates, dynamic pricing, and state management using Redux — all within a clean and user-friendly UI.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Features
+🛒 Browse and view products from Fake Store API
 
-Currently, two official plugins are available:
+➕ Add items to cart
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+➖ Increase/Decrease item quantity
 
-## Expanding the ESLint configuration
+❌ Remove items from cart
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🧮 Auto-updated total price based on quantity
+
+📱 Fully responsive UI (mobile & desktop support)
+
+🛠 Tech Stack
+Category	Tools Used
+Frontend	React.js, JSX, Tailwind CSS
+State Mgmt	Redux Toolkit, useSelector, useDispatch
+API	Fake Store API (RESTful)
+UI/UX	Responsive Design, Conditional Styling
+Dev Tools	VS Code, Git, GitHub, Postman (optional)
