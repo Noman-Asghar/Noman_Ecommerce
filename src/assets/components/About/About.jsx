@@ -1,18 +1,31 @@
 import React from "react";
 import aboutImg from "/about.jpeg";
+import { motion } from 'framer-motion'
+import { Typewriter } from 'react-simple-typewriter'
 
 const About = () => {
   return (
     <section className="w-full py-10 px-4">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
         {/* Text Content */}
-        <div className="lg:w-1/2 w-full">
-          <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
-            About Me <span className="text-orange-500">(Noman)</span>
-          </h2>
-          <h4 className="text-xl font-semibold text-gray-700 mb-6">
-            MERN Stack Developer
-          </h4>
+        <div className="lg:w-1/2 w-full py-2">
+         {/* Typewriter Effect */}
+                    <motion.h2 
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 1.2 }}
+                      className="text-xl md:text-4xl py-3 font-bold italic text-orange-500"
+                    >
+                      <Typewriter
+                        words={['About Me', "I'm Noman Asghar", "I'm MERN Stack Developer"]}
+                        loop={0}
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={80}
+                        deleteSpeed={50}
+                        delaySpeed={1500}
+                      />
+                    </motion.h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Hi, I'm <span className="font-semibold text-orange-500">Noman</span>,
             a passionate and detail-oriented MERN Stack Developer with a strong command
@@ -52,7 +65,7 @@ const About = () => {
           <img
             src={aboutImg}
             alt="About Noman"
-            className="rounded-xl shadow-lg w-full max-w-md object-cover"
+            className="rounded-xl shadow-lg w-full max-w-md object-cover hover:scale-90 duration-300"
           />
         </div>
       </div>

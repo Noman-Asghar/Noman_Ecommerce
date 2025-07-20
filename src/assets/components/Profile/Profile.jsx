@@ -1,40 +1,65 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchedProfile } from '../../redux/slices/githubSlice'
-
+import { motion } from 'framer-motion'
 
 const Profile = () => {
-   const {profile: data, isLoading, isError} = useSelector((state) => state.profile)
-   const dispatch = useDispatch()
+  const { profile: data, isLoading, isError } = useSelector((state) => state.profile)
+  const dispatch = useDispatch()
 
-   useEffect(() => {
-      dispatch(fetchedProfile())
-   }, [])
+  useEffect(() => {
+    dispatch(fetchedProfile())
+  }, [dispatch])
 
-   if (isLoading) {
-    <h1>Loading...</h1>
-   }
-   if (isError) {
-     <h1>Error: {isError}</h1>
-   }
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-[50vh]">
+        <h1 className="text-2xl font-bold animate-pulse text-gray-600">Loading...</h1>
+      </div>
+    )
+  }
+
+  if (isError) {
+    return (
+      <div className="flex justify-center items-center h-[50vh]">
+        <h1 className="text-2xl text-red-500 font-bold">Error: {isError}</h1>
+      </div>
+    )
+  }
+
   return (
-<div className="w-full py-[100px]  bg-gray-400 flex md:flex-row flex-col gap-7 justify-around items-center">
-  <div className="">
-    <img className='rounded-full' src="data:image/png;base64,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" alt="" />
-  </div>
-<div className="p-5 md:w-lg w-sm flex flex-col rounded-xl transition-all duration-300 hover:bg-black  hover:text-white bg-amber-50 gap-3" style={{boxShadow: '4px 4px 4px 4px'}}>
-  <img src={data?.avatar_url} alt="" className='rounded-lg' />
-  <p className='text-3xl font-bold '><span>Name: </span>{data?.login}</p>
-  <p className='text-lg font-bold'>Bio: {data?.bio}</p>
-  <p className='text-xl font-bold'>Publich Repos: {data?.public_repos}</p>
-</div>
- <div className="">
-    <img className='rounded-full' src="data:image/png;base64,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" alt="" />
-  </div>
-</div>
+    <div className="w-full py-[80px] px-4 bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col md:flex-row gap-10 justify-center items-center overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="p-6 w-full max-w-md flex flex-col items-center rounded-xl bg-white/30 backdrop-blur-md shadow-xl hover:shadow-2xl transition duration-300 hover:bg-white/50 border border-white gap-4"
+      >
+        <img
+          src={data?.avatar_url}
+          alt="GitHub Avatar"
+          className="rounded-full w-[150px] h-[150px] object-cover shadow-lg border-4 border-orange-400"
+        />
+        <p className="text-2xl font-bold text-gray-800">
+          <span className="text-orange-600">Name:</span> {data?.login}
+        </p>
+        <p className="text-md text-gray-700 font-medium text-center">
+          <span className="font-bold text-black">Bio:</span> {data?.bio || 'No bio available'}
+        </p>
+        <p className="text-lg font-semibold text-gray-900">
+          Public Repos: <span className="text-orange-500">{data?.public_repos}</span>
+        </p>
+        <a
+          href={data?.html_url}
+          target="_blank"
+          rel="noreferrer"
+          className="bg-orange-500 text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition-all"
+        >
+          View GitHub Profile
+        </a>
+      </motion.div>
+    </div>
   )
 }
 
 export default Profile
-
-
