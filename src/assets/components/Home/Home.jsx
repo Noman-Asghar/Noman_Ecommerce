@@ -68,7 +68,7 @@ const Home = () => {
 </div>
 
 
-    <div data-aos="fade-left">
+    <div data-aos="slide-down">
   <Profile />
 </div>
 
