@@ -9,9 +9,22 @@ import Url from "./assets/components/Url/Url"
 import Products from "./assets/components/Products/Products"
 import ProductsDetails from "./assets/components/Products/ProductsDetails"
 import CardPage from "./assets/components/Card/CardPage"
+import Aos from "aos"
+import 'aos/dist/aos.css'; 
+import { useEffect } from "react"
 
 
 function App() {
+
+useEffect(() => {
+  Aos.init({
+    duration: 1000,
+    offset: 120,          
+    delay: 100,
+    easing: 'ease-in-out', 
+    once: false,          
+  });
+}, []);
 
 
   return (

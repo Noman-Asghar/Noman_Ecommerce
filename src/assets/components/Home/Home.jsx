@@ -3,12 +3,16 @@ import banner from './banner2.jpg'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Typewriter } from 'react-simple-typewriter'
+import About from "../About/About"
+import Profile from '../Profile/Profile'
+import Contact from "../Contact/Contact"
 
 const Home = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="w-full h-auto relative">
+   <>
+     <div className="w-full h-auto relative">
       {/* Banner Image */}
       <img
         src={banner}
@@ -58,6 +62,21 @@ const Home = () => {
         </motion.button>
       </div>
     </div>
+  
+    <div data-aos="fade-up">
+  <About />
+</div>
+
+
+    <div data-aos="fade-left">
+  <Profile />
+</div>
+
+<div data-aos="fade-up">
+  <Contact />
+</div>
+
+   </>
   )
 }
 
