@@ -68,7 +68,7 @@ const Home = () => {
 </div>
 
 
-    <div data-aos="flip-up">
+    <div data-aos="zoom-in">
   <Profile />
 </div>
 
