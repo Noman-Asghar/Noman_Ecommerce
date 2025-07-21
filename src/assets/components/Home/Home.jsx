@@ -68,7 +68,7 @@ const Home = () => {
 </div>
 
 
-    <div data-aos="slide-down">
+    <div data-aos="flip-up">
   <Profile />
 </div>
 
